@@ -1,4 +1,6 @@
 ﻿using System;
+using Task1.Enums;
+using Task1.Structs;
 
 namespace Task1
 {
@@ -6,7 +8,9 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Key key1 = new Key(Note.C, Accidental.NoSign, Octave.Great);
+
+            Console.WriteLine(key1);
         }
     }
 }
