@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Stacks\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Classes\" />
+    <None Remove="Extencion Methods\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stacks\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Extencion Methods\" />
+  </ItemGroup>
+</Project>
