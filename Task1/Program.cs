@@ -8,9 +8,16 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            Key key1 = new Key(Note.C, Accidental.NoSign, Octave.Great);
+            Key key1 = new Key(Note.B, Accidental.NoSign, Octave.Great);
 
-            Console.WriteLine(key1);
+            Key key2 = new Key(Note.E, Accidental.Flat, Octave.Great);
+
+            Key gSharp = new Key(Note.G, Accidental.Sharp, Octave.Contra);
+            Key aFlat = new Key(Note.A, Accidental.Flat, Octave.Contra);
+
+            Console.WriteLine(key2);
+            Console.WriteLine(key1.Equals(aFlat));
+            Console.WriteLine(key1.CompareTo(key2));
         }
     }
 }

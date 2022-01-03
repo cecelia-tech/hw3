@@ -42,28 +42,25 @@ namespace Task1.Structs
             }
 
             //deals with regular sharp and flat
-            if ((Convert.ToChar(_note) + 1 == Convert.ToChar( key._note) &&
+            if ((_note + 1 ==  key._note &&
                 _accidental == Accidental.Sharp && key._accidental == Accidental.Flat) ||
-                (Convert.ToChar(_note) - 1 == Convert.ToChar(key._note) &&
+                (_note - 1 == key._note &&
                 _accidental == Accidental.Flat && key._accidental == Accidental.Sharp)
                 )
             {
                 return true;
             }
-
             //deals with one flat and other one no sign
-            if ((Convert.ToChar(_note) + 1 == Convert.ToChar(key._note) &&
+            else if ((_note + 1 == key._note &&
                 _accidental == Accidental.NoSign && key._accidental == Accidental.Flat) ||
-                (Convert.ToChar(_note) - 1 == Convert.ToChar(key._note) &&
+                (_note - 1 == key._note &&
                 _accidental == Accidental.Flat && key._accidental == Accidental.NoSign)
                 )
             {
                 return true;
             }
-
             //deals with A and G
-
-            if ((_note == Note.G &&
+            else if ((_note == Note.G &&
                 key._note == Note.A &&
                 _accidental == Accidental.Sharp && key._accidental == Accidental.Flat) ||
                 (_note == Note.A &&
