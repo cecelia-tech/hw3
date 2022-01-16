@@ -1,21 +1,24 @@
 ﻿using System;
+using Task2.Classes;
 using Task2.Interfaces;
 
 namespace Task2.ExtencionMethods
 {
-    public static class Reverse
+    public static class Extension
     {
-        public static IStack<T>[] Reverse2<T>(this IStack<T>[] stack)
+        public static IStack<T> Reverse<T>(this IStack<T> stack)
         {
-            int stackLength = stack.Length;
+            IStack<T> newStack = new Stack<T>();
+            
+            int stackLength = stack.Index;
 
-            IStack<T>[] newStack = new IStack<T>[stack.Length];
-            
-            for (int i = 0; i < stack.Length; i++)
+            for (int i = 0; i < stack.Index; i++)
             {
-                newStack[i] = stack[stackLength--];
+                newStack[i] = stack[--stackLength];
             }
-            
+
+            newStack.Index = stack.Index;
+
             return newStack;
         }
     }
