@@ -6,18 +6,18 @@ namespace Task2.ExtencionMethods
 {
     public static class Extension
     {
-        public static IStack<T> Reverse<T>(this IStack<T> stack)
+        public static Stack<T> Reverse<T>(this IStack<T> stack)
         {
-            IStack<T> newStack = new Stack<T>();
-            
-            int stackLength = stack.Index;
+            var s = stack as Stack<T>;
 
-            for (int i = 0; i < stack.Index; i++)
+            Stack<T> newStack = new Stack<T>();
+             
+            int stackLength = s.Index;
+
+            for (int i = 0; i < s.Index; i++)
             {
-                newStack[i] = stack[--stackLength];
+                newStack.Push(s.stack[--stackLength]);
             }
-
-            newStack.Index = stack.Index;
 
             return newStack;
         }

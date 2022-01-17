@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Task2.Interfaces;
 
 namespace Task2.Classes
 {
     public class Stack<T> : IStack<T>
     {
-        public int Index { get; set; }
+        public int Index { get; private set; }
 
         public T[] stack = new T[10];
-
-        public T this[int index]
-        {
-            // The arr object will throw IndexOutOfRange exception.
-            get => stack[index];
-            set => stack[index] = value;
-        }
 
         public bool IsEmpty()
         {
@@ -25,11 +16,17 @@ namespace Task2.Classes
 
         public T Pop()
         {
-            return stack[--Index];
+            return Index == 0 ? default : stack[--Index];
         }
 
         public void Push(T number)
         {
+            if (Index == stack.Length)
+            {
+                // does nothing
+                return;
+            }
+
             stack[Index++] = number;
         }
     }
