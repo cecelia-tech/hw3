@@ -5,9 +5,11 @@ namespace Task2.Classes
 {
     public class Stack<T> : IStack<T>
     {
+        private const int STACK_SIZE = 5;
+
         public int Index { get; private set; }
 
-        public T[] stack = new T[10];
+        public T[] stack = new T[STACK_SIZE];
 
         public bool IsEmpty()
         {
