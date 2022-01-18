@@ -16,7 +16,8 @@ namespace Task1
             Key aFlat = new Key(Note.A, Accidental.Flat, Octave.Contra);
 
             Console.WriteLine(key2);
-            Console.WriteLine(key1.Equals(aFlat));
+            Console.WriteLine(gSharp.Equals(aFlat));
+            Console.WriteLine(key2.Equals(aFlat));
             Console.WriteLine(key1.CompareTo(key2));
         }
     }

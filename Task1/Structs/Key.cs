@@ -6,66 +6,66 @@ namespace Task1.Structs
 {
     public struct Key : IComparable<Key>
     {
-        readonly Octave _octave;
-        readonly Note _note;
-        readonly Accidental _accidental;
+        readonly Octave Octave;
+        readonly Note Note;
+        readonly Accidental Accidental;
 
         public Key(Note note, Accidental accidental, Octave octave)
         {
-            _octave = octave;
-            _note = note;
-            _accidental = accidental;
+            Octave = octave;
+            Note = note;
+            Accidental = accidental;
         }
 
         public override string ToString()
         {
-            var _symbol = Accidental.Sharp == _accidental? "#" :
-                         Accidental.Flat == _accidental ? "♭" : "";
+            var symbol = Accidental.Sharp == Accidental? "#" :
+                         Accidental.Flat == Accidental ? "♭" : "";
 
-            return $"{_note}{_symbol} ({_octave})";
+            return $"{Note}{symbol} ({Octave})";
         }
 
         public override bool Equals(object obj)
         {
             var key = (Key)obj;
 
-            if (_octave != key._octave)
+            if (Octave != key.Octave)
             {
                 return false;
             }
 
-            if (key._note == _note &&
-                key._accidental == _accidental
+            if (key.Note == Note &&
+                key.Accidental == Accidental
                 )
             {
                 return true;
             }
 
             //deals with regular sharp and flat
-            if ((_note + 1 ==  key._note &&
-                _accidental == Accidental.Sharp && key._accidental == Accidental.Flat) ||
-                (_note - 1 == key._note &&
-                _accidental == Accidental.Flat && key._accidental == Accidental.Sharp)
+            if ((Note + 1 ==  key.Note &&
+                Accidental == Accidental.Sharp && key.Accidental == Accidental.Flat) ||
+                (Note - 1 == key.Note &&
+                Accidental == Accidental.Flat && key.Accidental == Accidental.Sharp)
                 )
             {
                 return true;
             }
             //deals with one flat and other one no sign
-            else if ((_note + 1 == key._note &&
-                _accidental == Accidental.NoSign && key._accidental == Accidental.Flat) ||
-                (_note - 1 == key._note &&
-                _accidental == Accidental.Flat && key._accidental == Accidental.NoSign)
+            else if ((Note + 1 == key.Note &&
+                Accidental == Accidental.NoSign && key.Accidental == Accidental.Flat) ||
+                (Note - 1 == key.Note &&
+                Accidental == Accidental.Flat && key.Accidental == Accidental.NoSign)
                 )
             {
                 return true;
             }
             //deals with A and G
-            else if ((_note == Note.G &&
-                key._note == Note.A &&
-                _accidental == Accidental.Sharp && key._accidental == Accidental.Flat) ||
-                (_note == Note.A &&
-                key._note == Note.G &&
-                _accidental == Accidental.Flat && key._accidental == Accidental.Sharp)
+            else if ((Note == Note.G &&
+                key.Note == Note.A &&
+                Accidental == Accidental.Sharp && key.Accidental == Accidental.Flat) ||
+                (Note == Note.A &&
+                key.Note == Note.G &&
+                Accidental == Accidental.Flat && key.Accidental == Accidental.Sharp)
                 )
             {
                 return true;
@@ -80,7 +80,7 @@ namespace Task1.Structs
             {
                 return 0;
             }
-            return _note.CompareTo(other._note);
+            return Note.CompareTo(other.Note);
         }
     }
 }
