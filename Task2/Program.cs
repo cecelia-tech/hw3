@@ -38,9 +38,11 @@ namespace Task2
             st3.Push("4");
             st3.Push("5");
             //trying to push into a full stack
-            st3.Push("6");
+            //st3.Push("6");
+            st3.Pop();
 
-            Console.WriteLine(st3.ToString());
+            Stack<string> st4 = st3.Reverse();
+            Console.WriteLine(st4.ToString());
         }
     }
 }

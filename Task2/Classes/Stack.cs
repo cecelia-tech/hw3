@@ -9,7 +9,7 @@ namespace Task2.Classes
         private const int STACK_SIZE = 5;
         private int index = default;
         public int Index { get { return index; } }
-        public T[] stack = new T[STACK_SIZE];
+        private T[] stack = new T[STACK_SIZE];
 
         public bool IsEmpty()
         {
@@ -18,6 +18,9 @@ namespace Task2.Classes
 
         public T Pop()
         {
+            //it doesn't seem to work properly otherwise, if I change to index--
+            //it returns the next default value if the stack is not full
+            //if the stack is full, it gives IndexOutOfRangeException
             return index == 0 ? default : stack[--index];
         }
 
@@ -39,7 +42,7 @@ namespace Task2.Classes
 
             for (int i = 0; i < index; i++)
             {
-                stackToString.Append(stack[i]).Append('\n');
+                stackToString.Append(stack[i]);
             }
             return stackToString.ToString();
         }
